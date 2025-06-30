@@ -24,10 +24,11 @@ jobs:
           TIMESTAMP=$(date +'%Y-%m-%d_%H-%M-%S')
           echo "TAG_NAME=$TIMESTAMP" >> $GITHUB_ENV
           echo "FILENAME=${PACKAGE_NAME}_${TIMESTAMP}.xrnx" >> $GITHUB_ENV
+          echo "CODE_PATH=${CODE_PATH}" >> $GITHUB_ENV
           
       - name: Zip XRNX Package
         run: |
-          zip -r "${{ env.FILENAME }}" ${CODE_PATH}
+          zip -r "${{ env.FILENAME }}" "${{ env.CODE_PATH }}"
 
       - name: Create GitHub Release
         id: create_release
