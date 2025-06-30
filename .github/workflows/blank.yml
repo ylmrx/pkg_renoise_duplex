@@ -17,3 +17,6 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          which git
+          git clone --depth 1 https://github.com/renoise/tools.git
+          ls tools/Tools
